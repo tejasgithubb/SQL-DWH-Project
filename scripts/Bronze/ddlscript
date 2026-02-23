@@ -13,9 +13,9 @@ CREATE TABLE Bronze.brz_crm_cust_info (
 	cst_id INT,
 	cst_key NVARCHAR(50),
 	cst_firstname VARCHAR(60),
-	cst_laastname VARCHAR(60),
-	cst_marital_status VARCHAR(1),
-	cst_gender VARCHAR(1),
+	cst_lastname VARCHAR(60),
+	cst_marital_status VARCHAR(10),
+	cst_gender VARCHAR(10),
 	cst_create_date DATE
 );
 
