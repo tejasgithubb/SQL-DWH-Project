@@ -1,9 +1,9 @@
 --Data Manipulation Scripts For Silver Layer
 
 
-==========================================
+--==========================================
 --For customer information
-==========================================
+--==========================================
               INSERT INTO Silver.slv_crm_cust_info (cst_id, 
               cst_key, 
               cst_firstname, 
@@ -40,9 +40,9 @@
               	WHERE t.occurance_flag = 1
 
 
-===================================
+--===================================
 --For Product information
-===================================
+--===================================
 
                 INSERT INTO Silver.slv_crm_prd_info(
                 	prd_id,
@@ -75,9 +75,9 @@
                 			 ) AS DATE) AS prd_end_date -- to ensure that there is no overlap among start and end dates -- fix the dates and maintain consistency
                 FROM Bronze.brz_crm_prd_info
 
-================================
+--================================
 --For Sales Details
-================================
+--================================
                 INSERT INTO silver.slv_crm_sales_details(
                     sls_ord_num,     
                     sls_prd_key ,    
@@ -126,9 +126,9 @@
                 
                 SELECT * FROM silver.slv_crm_sales_details
 
-==================================================
-ERP Data customers
-==================================================
+--==================================================
+--ERP Data customers
+--==================================================
                 INSERT INTO Silver.slv_erp_cust_az12(cust_az12_cid, cust_az12_bdate, cust_az12_gender)
                 
                 SELECT 
@@ -156,9 +156,9 @@ ERP Data customers
                                                                                      ELSE cust_az12_cid END NOT IN (SELECT cst_key FROM Bronze.brz_crm_cust_info)*/ -- Check for mismatch with customer crm tab*/
 
 
-==================================================
-ERP location info
-==================================================
+--==================================================
+--ERP location info
+--==================================================
 INSERT INTO Silver.slv_erp_loc_a101(loc_a101_cid, loc_a101_country)
                 
                 SELECT 
@@ -173,9 +173,9 @@ INSERT INTO Silver.slv_erp_loc_a101(loc_a101_cid, loc_a101_country)
                                                                                 --WHERE REPLACE (loc_a101_cid, '-', '')  NOT IN (SELECT cst_key FROM Bronze.brz_crm_cust_info ) to check if any data remains
 
 
-==================================================
-ERP product info
-==================================================
+--==================================================
+--ERP product info
+--==================================================
                   
                   INSERT INTO Silver.slv_erp_px_cat_g1v2(
                   			px_cat_g1v2_id,  
